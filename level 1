@@ -1,0 +1,21 @@
+Feature: Login to gmail.com
+    As registered gmail user
+    I want to login to gmail
+    So I can see my emails
+
+  Scenario: user has google account 
+    Given I have an login
+    When I try to log in as "Martha"
+    When I put password as "dupa"
+    Then I should see "You put wrong user name or password"
+
+Scenario: user has google account 
+    Given I have an account
+    When I try to log in as "Marta"
+    When I put password as "Dupa"
+    Then I should see "You will be redirected to gmail homepage"
+    
+  Scenario Outline: user put good account
+    Given I have
+    When I try to log in <login> 
+    Then the variable should contain <result>
