@@ -4,7 +4,7 @@ Feature: Login to gmail.com
     So I can see my emails
 
   Scenario: User can log in to the account 
-    Given: User has an account
+    Given: User has a google account
     When: User puts <username> in "username"
     And: User puts <correct-passwords> in "password"
     Then: User is successfuly logged in 
@@ -16,7 +16,7 @@ Feature: Login to gmail.com
     |    m.roman1 |   mr123456       |
 
 Scenario: User cannot log in to the account 
-    Given: User has an account
+  Given: User has a google account
     When: User puts <username> in "username"
     And: User puts <incorrect-passwords> in "password"
     Then: User is informed about wrong credentials 
