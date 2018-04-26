@@ -3,19 +3,27 @@ Feature: Login to gmail.com
     I want to login to gmail
     So I can see my emails
 
-  Scenario: user has google account 
-    Given I have an login
-    When I try to log in as "Martha"
-    When I put password as "dupa"
-    Then I should see "You put wrong user name or password"
+  Scenario: User can log in to the account 
+    Given: User has an account
+    When: User puts <username> in "username"
+    And: User puts <correct-passwords> in "password"
+    Then: User is successfuly logged in 
+    And: User is redirected to gmail homepage
 
-Scenario: user has google account 
-    Given I have an account
-    When I try to log in as "Marta"
-    When I put password as "Dupa"
-    Then I should see "You will be redirected to gmail homepage"
-    
-  Scenario Outline: user put good account
-    Given I have
-    When I try to log in <login> 
-    Then the variable should contain <result>
+  Examples:
+    | username    | correct-password | 
+    |    m.roman  |   mr12356        |
+    |    m.roman1 |   mr123456       |
+
+Scenario: User cannot log in to the account 
+    Given: User has an account
+    When: User puts <username> in "username"
+    And: User puts <incorrect-passwords> in "password"
+    Then: User is successfuly logged in 
+    And: User is redirected to gmail homepage
+
+  Examples:
+    | username    | incorrect-password | 
+    |    m.roman  |   mr12396          |
+    |    m.roman1 |   mr123s56         |
+
