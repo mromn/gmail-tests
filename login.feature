@@ -19,8 +19,8 @@ Scenario: User cannot log in to the account
     Given: User has an account
     When: User puts <username> in "username"
     And: User puts <incorrect-passwords> in "password"
-    Then: User is successfuly logged in 
-    And: User is redirected to gmail homepage
+    Then: User is informed about wrong credentials 
+    And: The retrieve password option opens
 
   Examples:
     | username    | incorrect-password | 
